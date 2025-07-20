@@ -1,0 +1,509 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Surreal Consciousness Theme - Variables for quantum reality
+   */
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 180 100% 90%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 180 100% 90%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 180 100% 90%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 180 50% 65%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 180 100% 15%;
+    --input: 180 100% 10%;
+    --ring: 195 100% 50%;
+
+    --radius: 1rem;
+
+    /* Quantum consciousness variables */
+    --neural-glow: 0 0 20px rgba(79, 172, 254, 0.6);
+    --quantum-shimmer: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 100%
+    );
+    --void-depth: 0 20px 40px rgba(0, 0, 0, 0.8);
+    --consciousness-pulse: 0 0 30px rgba(0, 242, 254, 0.8);
+
+    /* Performance optimization variables */
+    --particle-count: 100;
+    --animation-quality: high;
+
+    /* Enhancement component variables */
+    --cursor-glow: 0 0 20px rgba(139, 69, 255, 0.5);
+    --sound-visualizer: linear-gradient(45deg, #8b45ff, #4facfe);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    overflow-x: hidden;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 20, 40, 0.8) 0%,
+      #000000 100%
+    );
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    font-family: "Orbitron", "Poppins", sans-serif;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+  }
+}
+
+@layer components {
+  /* Quantum glass morphism */
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: var(--void-depth);
+  }
+
+  .glass-card-neural {
+    background: linear-gradient(
+      135deg,
+      rgba(79, 172, 254, 0.1) 0%,
+      rgba(0, 242, 254, 0.05) 100%
+    );
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(79, 172, 254, 0.2);
+    border-radius: 1rem;
+    box-shadow: var(--neural-glow);
+  }
+
+  /* Consciousness breathing effect */
+  .breathing {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      filter: brightness(1) blur(0px);
+    }
+    50% {
+      transform: scale(1.02) rotate(0.5deg);
+      filter: brightness(1.1) blur(0.5px);
+    }
+  }
+
+  /* Neural network connections */
+  .neural-connection {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .neural-connection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--quantum-shimmer);
+    animation: neural-pulse 3s linear infinite;
+  }
+
+  @keyframes neural-pulse {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  /* Quantum field distortion */
+  .quantum-field {
+    position: relative;
+    animation: quantum-distort 6s ease-in-out infinite;
+  }
+
+  @keyframes quantum-distort {
+    0%,
+    100% {
+      filter: hue-rotate(0deg) blur(0px) brightness(1);
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    }
+    33% {
+      filter: hue-rotate(60deg) blur(0.5px) brightness(1.1);
+      transform: perspective(1000px) rotateX(1deg) rotateY(1deg);
+    }
+    66% {
+      filter: hue-rotate(-30deg) blur(0.3px) brightness(0.9);
+      transform: perspective(1000px) rotateX(-0.5deg) rotateY(-1deg);
+    }
+  }
+
+  /* Liquid crystal text effect */
+  .liquid-crystal {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 50%, #4facfe 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquid-flow 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.6));
+  }
+
+  @keyframes liquid-flow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Holographic interface */
+  .holographic {
+    position: relative;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(79, 172, 254, 0.1) 50%,
+      transparent 70%
+    );
+    animation: hologram-scan 3s linear infinite;
+  }
+
+  .holographic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(79, 172, 254, 0.1) 2px,
+      rgba(79, 172, 254, 0.1) 4px
+    );
+    animation: hologram-lines 0.5s linear infinite;
+  }
+
+  @keyframes hologram-scan {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  @keyframes hologram-lines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Magnetic field visualization */
+  .magnetic-field {
+    position: relative;
+  }
+
+  .magnetic-field::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      transparent 40%,
+      rgba(79, 172, 254, 0.1) 50%,
+      transparent 60%
+    );
+    animation: magnetic-pulse 2s ease-in-out infinite;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .magnetic-field:hover::after {
+    opacity: 1;
+  }
+
+  @keyframes magnetic-pulse {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  }
+
+  /* DNA spiral effect */
+  .dna-spiral {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dna-spiral::before,
+  .dna-spiral::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    animation: dna-rotate 4s linear infinite;
+  }
+
+  .dna-spiral::before {
+    left: 30%;
+    animation-delay: 0s;
+  }
+
+  .dna-spiral::after {
+    right: 30%;
+    animation-delay: 2s;
+  }
+
+  @keyframes dna-rotate {
+    0% {
+      transform: rotateY(0deg) translateZ(20px);
+    }
+    100% {
+      transform: rotateY(360deg) translateZ(20px);
+    }
+  }
+
+  /* Void depth effect */
+  .void-depth {
+    box-shadow:
+      var(--void-depth),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Consciousness glow */
+  .consciousness-glow {
+    box-shadow: var(--consciousness-pulse);
+    animation: consciousness-breathe 3s ease-in-out infinite;
+  }
+
+  @keyframes consciousness-breathe {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+      filter: brightness(1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(0, 242, 254, 0.8);
+      filter: brightness(1.2);
+    }
+  }
+
+  /* Perspective and 3D transforms */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Neural blur effect */
+  .neural-blur {
+    backdrop-filter: blur(10px) saturate(180%);
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Quantum tunnel effect */
+  .quantum-tunnel {
+    background:
+      radial-gradient(
+        circle at center,
+        transparent 20%,
+        rgba(79, 172, 254, 0.1) 40%,
+        transparent 60%
+      ),
+      conic-gradient(from 0deg, #4facfe, #00f2fe, #4facfe);
+    animation: tunnel-spin 10s linear infinite;
+  }
+
+  @keyframes tunnel-spin {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  /* Custom slider styles for AmbientSoundManager */
+  .slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .slider-thumb::-webkit-slider-track {
+    background: rgba(255, 255, 255, 0.2);
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #8b45ff;
+    box-shadow: 0 0 10px rgba(139, 69, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .slider-thumb::-webkit-slider-thumb:hover {
+    background: #a855f7;
+    box-shadow: 0 0 15px rgba(139, 69, 255, 0.8);
+    transform: scale(1.2);
+  }
+
+  .slider-thumb::-moz-range-track {
+    background: rgba(255, 255, 255, 0.2);
+    height: 4px;
+    border-radius: 2px;
+    border: none;
+  }
+
+  .slider-thumb::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #8b45ff;
+    box-shadow: 0 0 10px rgba(139, 69, 255, 0.5);
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  /* Performance optimizations for low-end devices */
+  @media (max-width: 768px) {
+    .breathing {
+      animation-duration: 6s;
+    }
+
+    .quantum-distort {
+      animation: none;
+    }
+
+    .holographic {
+      animation-duration: 5s;
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .breathing,
+    .quantum-distort,
+    .liquid-crystal,
+    .holographic,
+    .magnetic-field,
+    .dna-spiral,
+    .consciousness-glow,
+    .quantum-tunnel {
+      animation: none;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --neural-glow: 0 0 20px rgba(255, 255, 255, 0.8);
+      --consciousness-pulse: 0 0 30px rgba(255, 255, 255, 0.9);
+    }
+  }
+}
