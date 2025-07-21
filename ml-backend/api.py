@@ -8,21 +8,24 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-# Load trained model
-model = joblib.load('churn_model.pkl')
+# ✅ Load the model using absolute path
+model_path = os.path.join(os.path.dirname(__file__), "churn_model.pkl")
+model = joblib.load(model_path)
 
 # --- Route 1: ML Prediction ---
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
 
+    # Convert to DataFrame
     df = pd.DataFrame([data])
     df = pd.get_dummies(df)
 
-    # Align with model's expected input columns
+    # Align with model's expected columns
     model_columns = model.feature_names_in_
     df = df.reindex(columns=model_columns, fill_value=0)
 
+    # Make prediction
     prediction = model.predict(df)[0]
     confidence = model.predict_proba(df).max()
 
@@ -31,7 +34,7 @@ def predict():
         'confidence': round(float(confidence), 2)
     })
 
-# --- Route 2: Save login info ---
+# --- Route 2: Save Login Info ---
 @app.route('/api/login', methods=['POST'])
 def save_login():
     data = request.get_json()
@@ -41,7 +44,8 @@ def save_login():
     if not name or not email:
         return jsonify({"message": "❌ Name and Email required"}), 400
 
-    path = "logins.csv"
+    # ✅ Save to local CSV file safely
+    path = os.path.join(os.path.dirname(__file__), "logins.csv")
     file_exists = os.path.isfile(path)
 
     with open(path, mode='a', newline='') as f:
@@ -52,5 +56,6 @@ def save_login():
 
     return jsonify({"message": "✅ Login saved successfully"}), 200
 
+# ✅ Run server on correct host/port for Render
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
